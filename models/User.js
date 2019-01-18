@@ -2,11 +2,14 @@ const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
 const userSchema = new Schema({
-    firstname: String,
-    lastname: String,
     email: String,
-    role: String,
-    telephonenumber: String
+    password: String
 });
+
+
+userSchema.methods.validPassword = function( pwd ) {
+    // EXAMPLE CODE!
+    return ( this.password === pwd );
+};
 
 mongoose.model('users', userSchema);

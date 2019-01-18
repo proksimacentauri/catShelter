@@ -5,14 +5,25 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "server": "nodemon index.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "*",
     "body-parser": "^1.18.3",
-    "express": "^4.16.4",
-    "mongoose": "^5.4.2",
-    "nodemon": "^1.18.9"
+    "concurrently": "^4.1.0",
+    "connect-flash": "*",
+    "cookie-session": "^2.0.0-beta.3",
+    "ejs": "*",
+    "express": "*",
+    "express-ejs-layouts": "*",
+    "express-session": "*",
+    "mongoose": "*",
+    "nodemon": "^1.18.9",
+    "passport": "*",
+    "passport-local": "*"
   }
 }
