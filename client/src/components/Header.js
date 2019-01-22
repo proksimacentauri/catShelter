@@ -8,10 +8,10 @@ class Header extends Component {
         return;
     }
     if (this.props.auth == false) {
-        return (<li><a href="/login">>Log in</a></li>);
+        return (<li><a href="/login">Log in</a></li>);
     } 
 
-    return [<li><a href="logout">Log out</a></li>];
+    return [<li><a href="/logout">Log out</a></li>];
    }
     render() 
     {
@@ -19,7 +19,7 @@ class Header extends Component {
      return(
          <nav>
           <div className="nav-wrapper">
-          <a className="left brand-logo">Cat shelter</a>
+          <a className="left brand-logo" href="/">Cat shelter</a>
           <ul className="right">
             <li>
                 <a>

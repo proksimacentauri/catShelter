@@ -18,18 +18,17 @@ passport.use(
     new LocalStrategy(async (username,password,done) => {
         const existingUser = await User.findOne({ username: username });
    
-        if (!existingUser.validPassword(password)) {
-            return done(null, false, { message: 'Incorrect password.' });
-          
-        }
-
         if(existingUser)
         {
+            if (!existingUser.validPassword(password)) {
+                return done(null, false, { message: 'Incorrect password.' });
+              
+            }
             return done(null,existingUser);
         }
 
     
-    const user = await new User({ email: username, password: password}).save();
+    const user = await new User({ username: username, password: password}).save();
     done(null, user);
     
 }));

@@ -6,7 +6,7 @@ module.exports = app => {
     app.post('/login', 
     passport.authenticate('local', { failureRedirect: '/login' }),
     function(req, res) {
-      res.redirect('/api/user');
+      res.redirect('/dashboard');
     });
 
   app.get('/login', function (req, res) {
@@ -20,6 +20,6 @@ module.exports = app => {
 
   app.get('/logout', function(req, res) {
     req.logout();
-    res.send(null);
+    res.redirect('/');
   });
 };
