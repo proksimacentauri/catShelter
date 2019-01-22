@@ -16,19 +16,22 @@ passport.deserializeUser((id, done) => {
 
 passport.use(
     new LocalStrategy(async (username,password,done) => {
-        const existingUser = await User.findOne({ username: username });
-   
-        if(existingUser)
+        const existingUser = await User.findOne({ email: username });
+        
+        if(!existingUser)
         {
-            if (!existingUser.validPassword(password)) {
-                return done(null, false, { message: 'Incorrect password.' });
-              
-            }
-            return done(null,existingUser);
+         const user = await new User({ email: username, password: password}).save();
         }
 
-    
-    const user = await new User({ username: username, password: password}).save();
+        if (!existingUser.validPassword(password)) {
+            return done(null, false, { message: 'Incorrect password.' });
+          
+        }
+
+        if(existingUser)
+        {
+            return done(null,existingUser);
+        }
     done(null, user);
     
 }));
