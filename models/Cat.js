@@ -7,7 +7,7 @@ const catSchema = new Schema({
     healthy: String,
     weight: String,
     behaviour: String,
-    image: String
+    catImage: String
 });
 
 mongoose.model('cats', catSchema);

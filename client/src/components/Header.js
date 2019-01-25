@@ -16,7 +16,7 @@ class Header extends Component {
     }
 
     return [
-      <li>
+      <li key="1">
         <a href="/logout">Log out</a>
       </li>
     ];
@@ -34,7 +34,7 @@ class Header extends Component {
           </Link>
 
           <ul className="right">
-          <li><Link to="/catlist">adopt a cat!</Link></li>
+          <li><Link  to="/catlist">adopt a cat!</Link></li>
           {this.renderLoggedInContent()}</ul>
         </div>
       </nav>
