@@ -21,6 +21,7 @@ passport.use(
         if(!existingUser)
         {
          const user = await new User({ email: username, password: password}).save();
+         done(null, user);
         }
 
         if (!existingUser.validPassword(password)) {
@@ -32,6 +33,6 @@ passport.use(
         {
             return done(null,existingUser);
         }
-    done(null, user);
+
     
 }));
