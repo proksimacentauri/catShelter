@@ -1,8 +1,22 @@
-import { FETCH_CATS } from '../actions/types';
+import { FETCH_CATS, FETCH_CAT } from '../actions/types';
+import {updateObject} from '../utils/utility';
 
-export default function(state = [], action) {
+const initialState =  { 
+  cats: [],
+  cat: null
+};
+
+export default function(state = initialState, action) {
   if (action.type === FETCH_CATS) {
-    return action.payload || false;
+    return {
+      ...state,
+    cats: action.cats
+  };
+  }
+  else if (action.type === FETCH_CAT)
+  {
+    return { ...state,
+    cat: action.cat}
   }
   return state;
 }

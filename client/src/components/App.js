@@ -6,9 +6,10 @@ import Landing from './Landing';
 import Header from './Header'; 
 import CatList from './CatList';
 import RegistrationPage from './RegistrationPage';
-
+import CatNew from './CatNew';
+import CatProfile from './CatProfile';
 const DashBoard = () => <h2>DashBoard</h2>;
-const AddCat = () => <h2>addCat</h2>;
+
 
 
 class App extends Component 
@@ -27,8 +28,8 @@ class App extends Component
             <Header/>
             <Route exact path="/" component={Landing}/>
             <Route exact path="/catlist" component={CatList}/>
-            <Route path="/catlist/new" component={AddCat}/>
-            <Route path="/dashboard" component={DashBoard}/>
+            <Route exact path="/cats/:id"  component={CatProfile}/>
+            <Route path="/catlist/new" component={CatNew}/>
             <Route path="/Login" component={RegistrationPage}/>
         </div>
         </BrowserRouter>
